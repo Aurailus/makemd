@@ -262,6 +262,7 @@ export const saveFrontmatterValue = (
     if (afile instanceof TFile) {
     if (app.fileManager.processFrontMatter) {
       app.fileManager.processFrontMatter(afile, (frontmatter) => {
+        console.warn(frontmatter);
         if (plugin.dataViewAPI()) {
           if (plugin.dataViewAPI().page(afile.path)?.[key] && !frontmatter[key]) {
             replaceValues(plugin, afile.path, key, valueForDataview(type, value));
